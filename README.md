@@ -19,9 +19,6 @@ A modular Python framework for evaluating synthetic ophthalmology reports throug
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -84,3 +81,54 @@ The processed dataset is then used to train and evaluate a DeBERTa-based classif
    ```bash
    git clone https://github.com/Subhanaliweb/synthetic-ophthalmology-text-classification.git
    cd synthetic-ophthalmology-text-classification
+   ```
+2. Install the Required Dependencies:
+   ```bash
+   pip install torch transformers scikit-learn nltk seaborn matplotlib datasets
+   ```
+2. Download NLTK Data:
+   Open a Python shell or add this to your code to download necessary NLTK data:
+   ```
+   import nltk
+   nltk.download('wordnet')
+   nltk.download('stopwords')
+   ```
+
+## Usage
+   The application can be run from the command line and accepts several parameters:
+   
+#### Command-Line Parameters
+
+- **--csv_file** (required):  
+  The path to your CSV dataset file. Your CSV must include at least the following columns:
+  - ```text```: The text content.
+  - ```class_label```: The class label for each sample.
+ 
+- **--synonyms** (optional, default: false): 
+  Set to ```true``` to perform two iterations of misclassification-based synonym replacement. This process analyzes misclassified class pairs, extracts common words, and replaces them with synonyms.
+
+- **--balance** (optional, default: false):
+  Set to ```true``` to enable data augmentation for balancing the dataset. This will augment minority classes using synonym replacement until each class reaches the target sample count.
+  
+#### Example Command
+   ```bash
+   python main_app.py --csv_file path/to/your/dataset.csv --synonyms true --balance true
+   ```
+
+When you run the above command, the application will:
+
+1. **Perform Synonym Replacement:**  
+   Run two iterations of misclassification analysis and synonym replacement on the dataset.
+   
+2. **Perform Data Augmentation** (Optional):  
+   Balance the dataset by augmenting minority classes if the ```--balance``` flag is set to ```true```.
+
+3. **Run the Classification Pipeline:**  
+   Use the processed (and possibly balanced) dataset to train and evaluate a DeBERTa-based classifier.
+
+For additional help, run:
+```bash
+python main_app.py --help
+```
+This will display detailed descriptions of all command-line arguments.
+

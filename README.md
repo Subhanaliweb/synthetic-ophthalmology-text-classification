@@ -112,7 +112,7 @@ The processed dataset is then used to train and evaluate a DeBERTa-based classif
   
 #### Example Command
    ```bash
-   python main_app.py --csv_file path/to/your/dataset.csv --synonyms true --balance true
+   python main.py --csv_file path/to/your/dataset.csv --synonyms true --balance true
    ```
 
 When you run the above command, the application will:

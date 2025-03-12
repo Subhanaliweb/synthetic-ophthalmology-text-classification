@@ -128,7 +128,7 @@ When you run the above command, the application will:
 
 For additional help, run:
 ```bash
-python main_app.py --help
+python main.py --help
 ```
 This will display detailed descriptions of all command-line arguments.
 

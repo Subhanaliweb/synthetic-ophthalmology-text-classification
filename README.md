@@ -82,5 +82,5 @@ The processed dataset is then used to train and evaluate a DeBERTa-based classif
 1. **Clone the Repository** (or copy the files into a folder):
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/Subhanaliweb/synthetic-ophthalmology-text-classification.git
+   cd synthetic-ophthalmology-text-classification

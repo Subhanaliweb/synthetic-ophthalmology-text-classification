@@ -101,8 +101,8 @@ The processed dataset is then used to train and evaluate a DeBERTa-based classif
 
 - **--csv_file** (required):  
   The path to your CSV dataset file. Your CSV must include at least the following columns:
-  - ```text```: The text content.
   - ```class_label```: The class label for each sample.
+  - ```text```: The text content.
  
 - **--synonyms** (optional, default: false): 
   Set to ```true``` to perform two iterations of misclassification-based synonym replacement. This process analyzes misclassified class pairs, extracts common words, and replaces them with synonyms.
